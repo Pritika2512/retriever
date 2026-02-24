@@ -29,6 +29,15 @@ user to get most large datasets up and running by hours, and in some cases days.
 
 ## Installing the Current Release
 
+### Windows users
+
+On Windows, we recommend using a virtual environment and Python 3.11.
+
+If the `retriever` command is not recognized, try:
+
+```bash
+python -m retriever --help
+
 If you have Python installed you can install the current release using either `pip`:
 
 ```bash
@@ -58,7 +67,7 @@ not require a Python installation.
 Installing From Source
 ----------------------
 
-To install the Data Retriever from source, you'll need Python 3.6.8+ with the following packages installed:
+To install the Data Retriever from source, you'll need Python 3.6.8–3.11.x with the following packages installed:
 
 * xlrd
 
@@ -70,6 +79,8 @@ database management systems:
 * psycopg2-binary (for PostgreSQL), previously psycopg2.
 * pyodbc (for MS Access - this option is only available on Windows)
 * Microsoft Access Driver (ODBC for windows)
+
+Note: Python 3.12+ is currently not supported due to the removal of the `imp` module.
 
 ### To install from source
 
