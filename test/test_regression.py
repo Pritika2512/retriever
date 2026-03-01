@@ -1,6 +1,6 @@
 from __future__ import absolute_import
 
-import imp
+import importlib.util
 import os
 import shlex
 import shutil
@@ -8,7 +8,7 @@ import subprocess
 import sys
 import time
 from distutils.dir_util import copy_tree
-from imp import reload
+from importlib import reload
 
 import pytest
 import retriever as rt
@@ -141,11 +141,12 @@ def teardown_module():
 
 
 def get_script_module(script_name):
-    """Load a script module"""
     if script_name in python_files:
-        file, pathname, desc = imp.find_module(script_name,
-                                               [working_script_dir])
-        return imp.load_module(script_name + '.py', file, pathname, desc)
+        module_path = os.path.join(working_script_dir, f"{script_name}.py")
+        spec = importlib.util.spec_from_file_location(script_name, module_path)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        return module
     return read_json(os.path.join(retriever_root_dir, 'scripts', script_name))
 
 

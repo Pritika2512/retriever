@@ -19,14 +19,12 @@ branch of your fork and then submit a pull request.
 
 ## Running the tests
 
-We use [pytest](https://docs.pytest.org/en/latest/) for testing. To run the
-tests first install nose using pip:
+We use [pytest](https://docs.pytest.org/en/latest/) for testing. To run the tests, install pytest:
 
 `pip install pytest`
 
 Then from the root of the repository install the Retriever:
-
-`python setup.py install`
+"pip install -e".
 
 and run the tests:
 
