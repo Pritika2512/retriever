@@ -19,12 +19,28 @@ branch of your fork and then submit a pull request.
 
 ## Running the tests
 
+We use pytest for testing.
+
+First create and activate a virtual environment:
+
+python -m venv .venv
+source .venv/bin/activate
+
+Install development dependencies:
+
+pip install pytest
+pip install -e .
+
+Then run the tests:
+
+pytest
+
 We use [pytest](https://docs.pytest.org/en/latest/) for testing. To run the tests, install pytest:
 
 `pip install pytest`
 
 Then from the root of the repository install the Retriever:
-"pip install -e".
+pip install -e.
 
 and run the tests:
 
